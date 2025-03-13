@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Student Form</title>
+</head>
+<body>
+    <p><strong>STUDENT INFORMATION</strong></p>
+
+    <form>
+        <table border="1">
+            <tr>
+                <td>First Name</td>
+                <td><input type="text" name="firstname" placeholder="Enter Your Last Name" required></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input type="text" name="lastname" placeholder="Enter Your Last Name" required></td>
+            </tr>
+            <tr>
+                <td>
+                    User Id
+                </td>
+                <td><input type="text" name="userid" placeholder="Enter Your User ID"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" name="userid" placeholder="Enter Your Email" required></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" name="password" required></td>
+            </tr>
+            <tr>
+                <td>Date of Birth</td>
+                <td><input type="date" name="dob" required></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>
+                    <input type="radio" name="gender" value="Male"> Male
+                    <input type="radio" name="gender" value="Female"> Female
+                    <input type="radio" name="gender" value="Others">Others
+                </td>
+            </tr>
+            <tr>
+                <td>Hobby/Skill</td>
+                <td><input type="checkbox" name="hobby1" id="hobby1" value="reading">Reading
+                    <input type="checkbox" name="hobby2" id="hobby2" value="travel">Travel
+                    <input type="checkbox" name="hobby3" id="hobby3" value="fishing">Fishhing
+                    <input type="checkbox" name="hobby4" id="hobby4" value="others">Others
+                </td>
+            </tr>
+            <tr>
+                <td>Department</td>
+                <td>
+                    <select name="department">
+                        <option value="CSE">Computer Science</option>
+                        <option value="EEE">Electrical Engineering</option>
+                        <option value="BBA">Business Administration</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><textarea name="address"></textarea></td>
+            </tr>
+            <tr>
+                <td>Image</td>
+                <td><input type="file" name="image"></td>
+            </tr>
+            <td><button>SUBMIT</button></td>
+            <td><button>Reset</button></td>
+
+        </table>
+    </form>
+</body>
+</html>
