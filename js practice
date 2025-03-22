@@ -1,1 +1,66 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <script>
+        function validateForm(event) {
+            event.preventDefault(); // Prevent form from submitting normally
+
+            // Get form values
+            let username = document.getElementById("username").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let errorMsg = document.getElementById("errorMsg");
+
+            // Clear previous errors
+            errorMsg.innerHTML = "";
+            errorMsg.style.color = "red";
+
+            // Validate Username
+            if (username === "") {
+                errorMsg.innerHTML = "Username cannot be empty!";
+                return false;
+            }
+
+            // Validate Password
+            if (password === "") {
+                errorMsg.innerHTML = "Password cannot be empty!";
+                return false;
+            }
+
+            if (password.length < 6) {
+                errorMsg.innerHTML = "Password must be at least 6 characters long!";
+                return false;
+            }
+
+            // Redirect to add_product.html after validation
+            window.location.href = "add_product.html";
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="validateForm(event)">  
+        <fieldset>
+            <legend>Sign in</legend>
+            <table>
+                <tr>
+                    <td>Username</td>
+                    <td><input type="text" id="username" name="username"></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input type="password" id="password" name="password"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="submit">Login</button>
+                    </td>
+                </tr>
+            </table>
+            <p id="errorMsg"></p> <!-- Error message area -->
+        </fieldset>
+    </form>
+</body>
+</html>
