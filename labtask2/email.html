@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Validation</title>
+  <style>
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<h1 id="work"> EMAIL Validation</h1>
+
+<form method="" action="" onsubmit="return validateEmail()">
+  <input type="email" id="email" name="email" value="" onblur="validateEmail();">
+  <input type="submit" id="button" name="button" value="Submit">
+</form>
+
+<p id="msg"></p>
+
+<script>
+function validateEmail() {
+    let email = document.getElementById('email').value;
+    let msg = document.getElementById('msg');
+
+    if (email == "") {
+        msg.innerHTML = "Please type your email!";
+        msg.style.color = 'red';
+        return false;
+    } else {
+        msg.innerHTML = "";
+        return true;
+    }
+}
+</script>
+  
+</body>
+</html>

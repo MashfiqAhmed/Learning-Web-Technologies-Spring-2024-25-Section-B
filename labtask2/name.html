@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <title>  Name Validation</title>
+</head>
+<body>
+    <h1 id="head">Name Validation</h1>
+    
+    <form method="" action="" onsubmit="return validateName()">
+        <input type="text" id="username" name="username" value="" onblur="validateName()"/>
+        <input type="submit" name="button" id="button" value="Submit" />
+    </form>
+
+    <p id="msg"></p>
+
+    <script>
+        function validateName(){
+            let username = document.getElementById('username').value.trim();
+            let msg = document.getElementById('msg');
+
+            let namePattern = /^[a-zA-Z][a-zA-Z.\-]*\s+[a-zA-Z.\-]+$/; 
+
+            if(username === ""){
+                msg.innerHTML = "Please type a name!";
+                msg.style.color = 'red';
+                return false;
+            } else if (!namePattern.test(username)){
+                msg.innerHTML = "Invalid name! Must be at least two words, start with a letter, and contain only letters, dot (.), or dash (-).";
+                msg.style.color = 'red';
+                return false;
+            } else {
+                document.getElementById('head').innerHTML = username;
+                msg.innerHTML = "";
+                return true;
+            }
+        }
+    </script>
+</body>
+</html>
