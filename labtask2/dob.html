@@ -3,9 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Date of Birth Validation</title>
+  <style>
+    .error {
+      color: red;
+    }
+  </style>
 </head>
 <body>
-  
+
+  <h2>Date of Birth</h2>
+  alert('Please Register your DATE OF BIRTH');
+  <form onsubmit="return validateDOB()">
+    <label for="dd">DD:</label>
+    <input type="text" id="dd" name="dd" size="2" maxlength="2"> /
+    
+    <label for="mm">MM:</label>
+    <input type="text" id="mm" name="mm" size="2" maxlength="2"> /
+    
+    <label for="yyyy">YYYY:</label>
+    <input type="text" id="yyyy" name="yyyy" size="4" maxlength="4">
+    <br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <p id="msg" class="error"></p>
+
+  <script>
+    function validateDOB() {
+      let day = document.getElementById("dd").value;
+      let month = document.getElementById("mm").value;
+      let year = document.getElementById("yyyy").value;
+      let msg = document.getElementById("msg");
+
+      // Check if any field is empty
+      if (day === "" || month === "" || year === "") {
+        msg.innerHTML = "Date of Birth fields cannot be empty!";
+        return false;
+      }
+
+      // Convert to numbers
+      day = parseInt(day);
+      month = parseInt(month);
+      year = parseInt(year);
+
+      // Validate day, month, and year
+      if (isNaN(day) || day < 1 || day > 31) {
+        msg.innerHTML = "Day must be between 1-31!";
+        return false;
+      }
+
+      if (isNaN(month) || month < 1 || month > 12) {
+        msg.innerHTML = "Month must be between 1-12!";
+        return false;
+      }
+
+      if (isNaN(year) || year < 1900 || year > 2016) {
+        msg.innerHTML = "Year must be between 1900-2016!";
+        return false;
+      }
+
+      msg.innerHTML = ""; // Clear error message if all is valid
+      return true;
+    }
+  </script>
+
 </body>
 </html>

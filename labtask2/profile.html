@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Profile Picture Upload</title>
+    <style>
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+    <h1 id="head">Profile Picture Upload</h1>
+    
+    <form method="" action="" onsubmit="return validateForm()">
+        <div>
+            <label for="userId">User ID:</label>
+            <input type="text" id="userId" name="userId" value="" onblur="validateUserId()"/>
+            <span id="userIdError" class="error"></span>
+        </div>
+        
+        <div>
+            <label for="picture">Picture:</label>
+            <input type="file" id="picture" name="picture" onchange="validatePicture()"/>
+            <span id="pictureError" class="error"></span>
+            <span id="fileStatus">No file selected.</span>
+        </div>
+        
+        <input type="submit" name="button" id="button" value="Submit" />
+    </form>
+
+    <p id="msg"></p>
+
+    <script>
+        function validateUserId() {
+            let userId = document.getElementById('userId').value.trim();
+            let errorElement = document.getElementById('userIdError');
+            
+            if(userId === "") {
+                errorElement.innerHTML = "User ID cannot be empty";
+                return false;
+            } 
+             else {
+                errorElement.innerHTML = "";
+                return true;
+            }
+        }
+        
+        function validatePicture() {
+            const picture = document.getElementById('picture').files;
+            const errorElement = document.getElementById('pictureError');
+            const fileStatus = document.getElementById('fileStatus');
+            
+            if(picture.length === 0) {
+                errorElement.innerHTML = "Please select a picture";
+                fileStatus.innerHTML = "No file selected.";
+                return false;
+            } else {
+                errorElement.innerHTML = "";
+                fileStatus.innerHTML = picture[0].name;
+                return true;
+            }
+        }
+        
+        function validateForm() {
+            const isUserIdValid = validateUserId();
+            const isPictureValid = validatePicture();
+            const msg = document.getElementById('msg');
+            
+            if(isUserIdValid && isPictureValid) {
+                msg.innerHTML = "Form submitted successfully!";
+                msg.className = "success";
+                return true;
+            } else {
+                msg.innerHTML = "Please fix the errors in the form.";
+                msg.className = "error";
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
