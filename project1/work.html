@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Car Rental Booking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      padding: 20px;
+    }
+
+    .booking-form, .car-options {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .car {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+    }
+
+    .car img {
+      width: 120px;
+      height: auto;
+      border-radius: 8px;
+      margin-right: 20px;
+    }
+
+    .car-info {
+      flex: 1;
+    }
+
+    .car-info h4 {
+      margin: 0;
+    }
+
+    .car-info p {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #444;
+    }
+
+    .select-btn {
+      padding: 8px 12px;
+      background: green;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .select-btn:hover {
+      background: darkgreen;
+    }
+
+    .car-options {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Booking Form -->
+  <form class="booking-form" id="bookingForm">
+    <h2>Book Your Car</h2>
+    <label>Pick-up Location</label>
+    <select required>
+      <option value="">Select Location</option>
+      <option>Keflavik International Airport</option>
+      <option>Reykjavik City</option>
+    </select>
+
+    <label>Pick-up Date</label>
+    <input type="date" required>
+
+    <label>Pick-up Time</label>
+    <input type="time" required>
+
+    <label>Drop-off Location</label>
+    <select required>
+      <option value="">Select Location</option>
+      <option>Riyad city</option>
+      <option>Reykj City</option>
+      <option>Holland</option>
+      <option>London</option>
+    </select>
+
+    <label>Drop-off Date</label>
+    <input type="date" required>
+
+    <label>Drop-off Time</label>
+    <input type="time" required>
+
+    <label>Car Type</label>
+    <select>
+      <option>All Cars</option>
+      <option>Small</option>
+      <option>Luxury</option>
+      <option>SUV</option>
+    </select>
+
+    <label>Promo Code</label>
+    <input type="text" placeholder="Enter promo code">
+
+    <button type="submit">Search</button>
+  </form>
+
+  <!-- Suggested Cars -->
+  <div class="car-options" id="carOptions">
+    <h2>Available Cars</h2>
+
+    <div class="car">
+      <img src="https://www.freepik.com/photos/car" alt="Small Car">
+      <div class="car-info">
+        <h4>Small Compact</h4>
+        <p>Perfect for city travel and fuel efficiency.</p>
+        <p><strong>Price:</strong> $40/day</p>
+        <button class="select-btn">Select</button>
+      </div>
+    </div>
+
+    <div class="car">
+      <img src="https://cdn.pixabay.com/photo/2016/11/29/02/59/audi-1867503_1280.jpg" alt="Luxury Car">
+      <div class="car-info">
+        <h4>Luxury Sedan</h4>
+        <p>Premium comfort with top-class features.</p>
+        <p><strong>Price:</strong> $90/day</p>
+        <button class="select-btn">Select</button>
+      </div>
+    </div>
+
+    <div class="car">
+      <img src="https://cdn.pixabay.com/photo/2012/05/29/00/43/suv-49280_1280.jpg" alt="SUV">
+      <div class="car-info">
+        <h4>SUV 4x4</h4>
+        <p>Great for countryside trips and space.</p>
+        <p><strong>Price:</strong> $75/day</p>
+        <button class="select-btn">Select</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let form = document.getElementById('bookingForm');
+    let carOptions = document.getElementById('carOptions');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      carOptions.style.display = 'block';
+      carOptions.scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>

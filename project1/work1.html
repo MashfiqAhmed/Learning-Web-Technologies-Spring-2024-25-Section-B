@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Car Rental Booking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 30px;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    fieldset {
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 15px;
+    }
+
+    legend {
+      font-weight: bold;
+      color: #444;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="time"],
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    input[type="checkbox"] {
+      margin-left: 10px;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    #message {
+      color: red;
+      margin-top: 10px;
+    }
+
+    #must {
+      font-weight: bold;
+      color: green;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="rentalForm" onsubmit="return validateForm();">
+    <h2>Car Rental Booking</h2>
+
+    <fieldset>
+      <legend>Pickup Information</legend>
+
+      <label for="pickup-location">
+        Pickup from:
+        <select name="pickup-location" id="pickup-location">
+          <option value="">-- Select Pickup Location --</option>
+          <option value="HSIA">Hazrat Shahjalal International Airport</option>
+          <option value="Sylhet">Osmani International Airport, Sylhet</option>
+        </select>
+      </label>
+
+      <label>
+        Date:
+        <input type="date" name="pickup-date" value="2025-04-18" id="pickupDate">
+      </label>
+
+      <label>
+        Time:
+        <input type="time" name="pickup-time" value="12:00" id="pickupTime">
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Dropoff Information</legend>
+
+      <label>
+        Dropoff at same location
+        <input type="checkbox" name="dropoff-same" id="dropoffSame">
+      </label>
+
+      <label>
+        Date:
+        <input type="date" name="dropoff-date" value="2025-04-25" id="dropoffDate">
+      </label>
+
+      <label>
+        Time:
+        <input type="time" name="dropoff-time" value="12:00" id="dropoffTime">
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Vehicle & Promo</legend>
+
+      <label>
+        Car Type:
+        <select name="car-type" id="carType">
+          <option value="">-- Select Car Type --</option>
+          <option>All Cars</option>
+          <option>Small Car</option>
+          <option>Luxury & Vans</option>
+          <option>Camper</option>
+          <option>Large</option>
+          <option>Medium</option>
+        </select>
+      </label>
+
+      <label>
+        Promo Code:
+        <input type="text" name="promo-code" placeholder="Enter promo code" id="promoCode">
+      </label>
+    </fieldset>
+
+    <input type="submit" value="Search">
+    <p id="message"></p>
+    <p id="must"></p>
+  </form>
+
+  <script>
+    function validateForm() {
+      let carType = document.getElementById('carType').value;
+      let message = document.getElementById('message');
+      let summary = document.getElementById('must');
+
+      if (carType === "") {
+        message.innerText = "Please choose a car type!";
+        summary.innerText = "";
+        return false;
+      } else {
+        message.innerText = "";
+        summary.innerText = "You selected: " + carType;
+        return false; // Prevent real submission (demo purpose)
+      }
+    }
+  </script>
+
+</body>
+</html>
